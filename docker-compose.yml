@@ -1,0 +1,18 @@
+version: "3.7"
+
+services:
+  tesseract:
+    image: macterra/tesseract-node:v21.08.03
+    volumes:
+      - ./tesseract:/data
+    ports:
+      - 7337
+      - 8337
+
+  bfgminer:
+    image: macterra/bfgminer-sha3
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    volumes:
+      - ./script:/app/script
+
